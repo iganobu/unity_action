@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerControl : MonoBehaviour 
 {
 	private float run_speed_;
-	private const float run_speed_max = 10.0f;
+	private const float run_speed_max = 20.0f;
 	private const float run_speed_add = 1.0f;
 	private const float run_speed_sub = 5.0f*4.0f;
 
@@ -44,7 +44,9 @@ public class PlayerControl : MonoBehaviour
 		}
 		run_speed_ = Mathf.Clamp (run_speed_, 0.0f, run_speed_max);
 
-		//transform.position += new Vector3(run_speed_, 0.0f, 0.0f);
+		transform.position += new Vector3(run_speed_, 0.0f, 0.0f) * Time.deltaTime;
+
+		//Debug.Log (run_speed_);
 
 		if (is_attack)
 		{
